@@ -12,11 +12,13 @@ module.exports = {
   },
 
   async deleteById (request, response){
-    const {id} = request.params;
-
-    await User.findOneAndDelete(id);
-
-    return response.status(204).send();
+    try{
+      const user = await User.findById(request.params.userId);
+      
+      return response.send();
+    }catch(err){
+      return response.status(400).send({error: 'Error deleting user.'})
+    }
   },
 
   async updateById (request, response){

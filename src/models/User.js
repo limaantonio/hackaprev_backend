@@ -32,35 +32,35 @@ const UserSchema = new mongoose.Schema({
     select: false
   },
   
-  // idade: {
-  //   type: Number,
-  //   required: true
-  // },
+  idade: {
+    type: Number
+   
+  },
   
-  // sexo: {
-  //   type: String,
-  //   required: true,
-  // },
+  sexo: {
+    type: String
+    
+  },
 
-  // endereco: {
-  //   type: String,
-  //   required: true,
-  // },
+  endereco: {
+    type: String
+   
+  },
 
-  // cidade: {
-  //   type: String,
-  //   required: true,
-  // },
+  cidade: {
+    type: String
+    
+  },
 
-  // ocupacao: {
-  //   type: String,
-  //   required: true,
-  // },
+  ocupacao: {
+    type: String
+    
+  },
 
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now()
-  // }
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 
 });
 

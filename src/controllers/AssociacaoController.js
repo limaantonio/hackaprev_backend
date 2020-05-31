@@ -5,7 +5,7 @@ module.exports = {
 
   async index(request, response){
       try{
-        const associacoes = await Associcao.find();
+        const associacoes = await Associcao.find().populate('user_responsavel');
         
         return response.send({associacoes})
       }catch(err){
@@ -14,7 +14,13 @@ module.exports = {
   },
 
   async indexById(request, response){
-    response.send({user: request.userID});
+    try{
+      const associacao = await Associcao.findById(request.params.associcaoId).populate('user_responsavel');
+      
+      return response.send({associacao})
+    }catch(err){
+      return response.status(400).send({error: 'Error loading user.'})
+    }
   },
 
   async create (request, response){

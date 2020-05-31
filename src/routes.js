@@ -7,8 +7,6 @@ const authMiddleware = require('../src/middlewares/auth');
 
 const routes = express.Router();
 
-
-
 routes.post('/register', authController.register);
 
 routes.post('/authenticate', authController.authenticate);
@@ -18,11 +16,11 @@ routes.post('/forgot_password', authController.forgot_password);
 routes.post('/reset_password', authController.reset_password);
 
 routes.get('/users', UserController.index);
-routes.delete('/users/:id', UserController.deleteById);
+routes.delete('/user/:userId', UserController.deleteById);
 routes.put('/users/:id', UserController.updateById);
 routes.post('/users', UserController.create);
 
-//routes.get('/:associcaoId', AssociacaoController.indexById);
+routes.get('/associacao/:associcaoId', authMiddleware, AssociacaoController.indexById);
 routes.get('/associacao',  authMiddleware, AssociacaoController.index);
 routes.post('/associacao', authMiddleware, AssociacaoController.create);
 
