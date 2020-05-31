@@ -13,7 +13,7 @@ module.exports = {
 
   async deleteById (request, response){
     try{
-      const user = await User.findById(request.params.userId);
+      const user = await User.findOneAndRemove(request.params.userId);
       
       return response.send();
     }catch(err){

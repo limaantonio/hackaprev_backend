@@ -7,6 +7,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 
+  adm: {
+    type: Boolean,
+    required: true
+  },
+
   email: {
     type: String,
     required: true,
